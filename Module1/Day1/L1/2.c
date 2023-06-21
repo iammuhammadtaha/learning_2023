@@ -1,6 +1,11 @@
 #include <stdio.h>
 
-void printGrade(int score) {
+int main() {
+    int score;
+
+    printf("Enter the student's score: ");
+    scanf("%d", &score);
+
     if (score >= 90 && score <= 100) {
         printf("Grade A\n");
     } else if (score >= 75 && score <= 89) {
@@ -12,15 +17,8 @@ void printGrade(int score) {
     } else if (score >= 0 && score <= 49) {
         printf("Grade F\n");
     } else {
-        printf("Invalid score\n");
+        printf("Invalid score entered!\n");
     }
-}
-
-int main() {
-    int studentScore;
-    printf("Enter the student's score: ");
-    scanf("%d", &studentScore);
-    printGrade(studentScore);
 
     return 0;
 }

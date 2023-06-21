@@ -1,30 +1,23 @@
 #include <stdio.h>
-#include <ctype.h>
-
-void toggleStringCase(char *str)
-{
-    for (int i = 0; str[i] != '\0'; i++)
-    {
-        if (isupper(str[i]))
-        {
-            str[i] = tolower(str[i]);
-        }
-        else if (islower(str[i]))
-        {
-            str[i] = toupper(str[i]);
-        }
-    }
-}
-
+#include <string.h>
+ 
 int main()
 {
-    char str[100];
-    printf("Enter a string: ");
-    scanf("%s", str);
-
-    toggleStringCase(str);
-
-    printf("Toggled string: %s\n", str);
+    char s[1000];  
+    int i;
+ 
+    printf("Enter  the string : ");
+    gets(s);
+     
+    for(i=0;s[i];i++)  
+    {
+        if(s[i]>=65 && s[i]<=90)
+         s[i]+=32;
+        else if(s[i]>=97 && s[i]<=122)
+         s[i]-=32;
+ 	}
+ 	     
+    printf("string in togglecase ='%s'\n",s);
 
     return 0;
 }

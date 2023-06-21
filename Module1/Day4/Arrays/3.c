@@ -1,50 +1,38 @@
-#include <stdio.h>
+// Iterative C program to reverse an array
+#include<stdio.h>
 
-void reverseArray(int *arr, int length)
+/* Function to reverse arr[] from start to end*/
+void rvereseArray(int arr[], int start, int end)
 {
-    int *start = arr;
-    int *end = arr + length - 1;
+	int temp;
+	while (start < end)
+	{
+		temp = arr[start];
+		arr[start] = arr[end];
+		arr[end] = temp;
+		start++;
+		end--;
+	}
+}	
 
-    while (start < end)
-    {
-        int temp = *start;
-        *start = *end;
-        *end = temp;
+/* Utility that prints out an array on a line */
+void printArray(int arr[], int size)
+{
+int i;
+for (i=0; i < size; i++)
+	printf("%d ", arr[i]);
 
-        start++;
-        end--;
-    }
+printf("\n");
 }
 
+/* Driver function to test above functions */
 int main()
 {
-    int size;
-    printf("Enter the size of the array: ");
-    scanf("%d", &size);
-
-    int arr[size];
-
-    printf("Enter %d elements:\n", size);
-    for (int i = 0; i < size; i++)
-    {
-        scanf("%d", &arr[i]);
-    }
-
-    printf("Original array: ");
-    for (int i = 0; i < size; i++)
-    {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-
-    reverseArray(arr, size);
-
-    printf("Reversed array: ");
-    for (int i = 0; i < size; i++)
-    {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-
-    return 0;
+	int arr[] = {1, 2, 3, 4, 5, 6};
+	int n = sizeof(arr) / sizeof(arr[0]);
+	printArray(arr, n);
+	rvereseArray(arr, 0, n-1);
+	printf("Reversed array is \n");
+	printArray(arr, n);	
+	return 0;
 }

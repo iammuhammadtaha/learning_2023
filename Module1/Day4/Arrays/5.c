@@ -1,42 +1,57 @@
-#include <stdio.h>
+    #include <stdio.h>
 
-int findEvenOddIndexedDifference(int arr[], int length)
-{
-    int sumEven = 0;
-    int sumOdd = 0;
-
-    for (int i = 0; i < length; i++)
+    int main()
     {
-        if (i % 2 == 0)
+        int n;
+        printf("Enter size of the array : ");
+        scanf("%d",&n);
+        
+        int arr[n];
+        printf("Enter elements in array : ");
+        for(int i=0; i<n; i++)
         {
-            sumEven += arr[i];
+            scanf("%d",&arr[i]);
         }
-        else
+        
+        int sumeven =0, sumodd=0;
+        for(int i=0; i<n; i++)
         {
-            sumOdd += arr[i];
+            if(i%2==0)
+            {
+                sumeven = sumeven + arr[i];
+            }
+            else if(i%2!=0)
+            {
+                 sumodd = sumodd + arr[i];
+            }
         }
+        
+        printf("\n sum of even indexed elements = ");
+        for(int i=0; i<n; i++)
+        {
+            
+            if(i%2==0)
+            {
+                printf("%d", arr[i]);
+                printf("+");
+            }
+            
+        }
+        printf("\n Total sum of even indexed elements %d \n", sumeven);
+
+        printf("\n sum of odd indexed elements = ");
+        for(int i=0; i<n; i++)
+        {
+            
+            if(i%2!=0)
+            {
+                printf("%d",arr[i]);
+                printf("+");
+            }
+        }
+        
+        printf("\n Total sum of odd indexed elements %d \n", sumodd);
+
+        return 0;
+        
     }
-
-    return sumEven - sumOdd;
-}
-
-int main()
-{
-    int size;
-    printf("Enter the size of the array: ");
-    scanf("%d", &size);
-
-    int arr[size];
-
-    printf("Enter %d elements:\n", size);
-    for (int i = 0; i < size; i++)
-    {
-        scanf("%d", &arr[i]);
-    }
-
-    int difference = findEvenOddIndexedDifference(arr, size);
-
-    printf("Difference between sum of even-indexed and odd-indexed elements: %d\n", difference);
-
-    return 0;
-}

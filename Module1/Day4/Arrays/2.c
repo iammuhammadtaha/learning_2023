@@ -1,44 +1,35 @@
 #include <stdio.h>
-
-void findMinMax(int arr[], int length, int* min, int* max)
-{
-    *min = arr[0];
-    *max = arr[0];
-
-    for (int i = 1; i < length; i++)
-    {
-        if (arr[i] < *min)
-        {
-            *min = arr[i];
-        }
-
-        if (arr[i] > *max)
-        {
-            *max = arr[i];
-        }
-    }
-}
-
+#include <conio.h>
+ 
+ 
 int main()
 {
-    int size;
-    printf("Enter the size of the array: ");
-    scanf("%d", &size);
-
-    int arr[size];
-
-    printf("Enter %d elements:\n", size);
-    for (int i = 0; i < size; i++)
+    int a[1000],i,n,min,max;
+   
+    printf("Enter size of the array : ");
+    scanf("%d",&n);
+ 
+    printf("Enter elements in array : ");
+    for(i=0; i<n; i++)
     {
-        scanf("%d", &arr[i]);
+        scanf("%d",&a[i]);
     }
-
-    int min, max;
-
-    findMinMax(arr, size, &min, &max);
-
-    printf("Minimum: %d\n", min);
-    printf("Maximum: %d\n", max);
-
+ 
+    min=max=a[0];
+    for(i=1; i<n; i++)
+    {
+        if(min>a[i]){
+           min=a[i];
+        }
+        if(max<a[i])
+        {
+            max=a[i]; 
+        }
+		         
+    }
+    printf("minimum of array is : %d",min);
+    printf("\nmaximum of array is : %d",max);
+ 
+ 
     return 0;
 }

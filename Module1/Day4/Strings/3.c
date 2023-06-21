@@ -2,37 +2,28 @@
 #include <stdlib.h>
 #include <string.h>
 
-unsigned int computeTotalSeconds(const char *timeString)
-{
-    char *token;
-    char *delimiter = ":";
-    unsigned int totalSeconds = 0;
-
-    
-    char *hoursStr = strtok(strdup(timeString), delimiter);
-    char *minutesStr = strtok(NULL, delimiter);
-    char *secondsStr = strtok(NULL, delimiter);
-
-    
-    unsigned int hours = strtoul(hoursStr, NULL, 10);
-    unsigned int minutes = strtoul(minutesStr, NULL, 10);
-    unsigned int seconds = strtoul(secondsStr, NULL, 10);
-
-    
-    totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
-
-    return totalSeconds;
-}
-
 int main()
 {
-    char timeString[9];
-    printf("Enter the time in format hh:mm:ss: ");
-    scanf("%8s", timeString);
+   char timeString[9];
+   char *token;
+   unsigned long hours, minutes, seconds;
+   unsigned long totalSeconds;
 
-    unsigned int totalSeconds = computeTotalSeconds(timeString);
+   printf("Enter the time (hh:mm:ss): ");
+   scanf("%s", timeString);
 
-    printf("Total seconds: %u\n", totalSeconds);
+   token = strtok(timeString, ":");
+   hours = strtoul(token, NULL, 10);
 
-    return 0;
+   token = strtok(NULL, ":");
+   minutes = strtoul(token, NULL, 10);
+
+   token = strtok(NULL, ":");
+   seconds = strtoul(token, NULL, 10);
+
+   totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
+
+   printf("Total seconds: %lu\n", totalSeconds);
+
+   return 0;
 }

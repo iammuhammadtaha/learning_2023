@@ -1,39 +1,21 @@
 #include <stdio.h>
 
-void calcSumAvg(int arr[], int length, int* sum, float* average)
-{
-    *sum = 0;
-
-    for (int i = 0; i < length; i++)
-    {
-        *sum += arr[i];
-    }
-
-    *average = (float)(*sum) / length;
-}
-
 int main()
 {
-    int size;
-    printf("Enter the size of the array: ");
-    scanf("%d", &size);
+    int Arr[100], n, i, sum = 0;
 
-    int arr[size];
-    int length = sizeof(arr) / sizeof(arr[0]);
+    printf("Enter the number of elements you want to insert : ");
+    scanf("%d", &n);
 
-    printf("Enter %d elements:\n", length);
-    for (int i = 0; i < length; i++)
+    for (i = 0; i < n; i++)
     {
-        scanf("%d", &arr[i]);
+        printf("Enter element %d : ", i + 1);
+        scanf("%d", &Arr[i]);
+        sum += Arr[i];
     }
 
-    int sum;
-    float average;
-
-    calcSumAvg(arr, length, &sum, &average);
-
-    printf("Sum: %d\n", sum);
-    printf("Average: %.2f\n", average);
+    printf("\nThe sum of the array is : %d", sum);
+    printf("\nThe average of the array is : %0.2f", (float)sum / n);
 
     return 0;
 }
