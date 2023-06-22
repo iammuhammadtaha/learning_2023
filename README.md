@@ -1,6 +1,5 @@
 # learning_2023
-Tools used
-
-VS Code
-Git Bash
-Linux - Microsoft WSL (Ubuntu)
+Tools used:-
+1. VS Code
+2. Git Bash
+3. Linux - Microsoft WSL (Ubuntu)
